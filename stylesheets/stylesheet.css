@@ -444,3 +444,12 @@ Small Device Styles
   }
 
 }
+
+ul#headshots {
+    margin-bottom: 0;
+}
+
+#headshots li {
+  list-style: none;
+  display: table-cell;
+  padding: 0;}
