@@ -445,11 +445,17 @@ Small Device Styles
 
 }
 
-ul#headshots {
-    margin-bottom: 0;
-}
-
 #headshots li {
   list-style: none;
   display: table-cell;
-  padding: 0;}
+  padding: 0;
+}
+
+#headshots  img {
+  margin: 0;
+}
+
+#headshots  p {
+  margin: 0;
+  text-align: center;
+}
