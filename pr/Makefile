@@ -27,15 +27,15 @@
 %.pdf : %.odt
 	libreoffice --nologo --invisible --convert-to pdf $<
 
-VPATH = src
+VPATH = ~/Dropbox/patrickciro
 FILES := patrick-ciro-8x10.jpg \
 	patrick-ciro-8x10-bleed.jpg \
-    	patrick-ciro-4x6.jpg patrick-ciro-4x6.pdf \
-	patrick-ciro-resume.pdf \
+    	patrick-ciro-4x6.jpg \
+	patrick-ciro-4-25x6.jpg \
 	patrick-ciro-thumbnail.jpg \
 	patrick-ciro-alt.jpg \
 	patrick-ciro-alt-thumbnail.jpg \
-	patrick-ciro-card.jpg
+	#card.jpg
 
 OBJS := ../favicon.ico $(FILES)
 
@@ -55,7 +55,7 @@ patrick-ciro-alt-thumbnail.jpg : patrick-ciro-alt.jpg
 	convert $< -scale x500 -quality 80 $@
 
 # extract contact info from 4x6 postcard for web contact info
-patrick-ciro-card.jpg : patrick-ciro-4x6.pdf
+card.jpg : patrick-ciro-4x6.pdf
 	convert -density 300x300 $< -flatten miff:- |\
 	    convert - -crop 795x315+50+60 -resize 400x -quality 85 $@
 
@@ -72,18 +72,27 @@ patrick-ciro-card.jpg : patrick-ciro-4x6.pdf
 
 # 8x10 bleed: 8.2x9.1" == 2460x2730 px + 1.1" == 330 px border on bottom
 patrick-ciro-8x10-bleed.jpg : patrick-ciro.jpg patrick-ciro-caption.png
-	convert $< -crop 2460x2730+480+120 -gravity south -splice 0x330 +depth miff:- | \
+	convert $< -crop 2246x2489+490+95 \
+	    -resize 2460x2730 \
+	    -gravity south -splice 0x330 +depth miff:- | \
 	    composite -gravity center patrick-ciro-caption.png -geometry +0+1300 - $@
 
-# 8x10 bleed: 8x10" == 2400x3000 px + 1" == 330 px border on bottom
+# 8x10 bleed (crop bleed by 30 each side)
 patrick-ciro-8x10.jpg : patrick-ciro-8x10-bleed.jpg
 	convert $< -crop 2400x3000+30+30 $@
 
 # 4.25x6 postcard exact
-patrick-ciro-4x6.jpg : patrick-ciro.jpg
-	convert $< -crop 2728x3850+365+110 -scale 1275x1800 -rotate 90  \
+patrick-ciro-4-25x6.jpg : patrick-ciro.jpg
+	convert $< -crop 2720x3840+448+112 -scale 1275x1800 -rotate 90  \
 	    -gravity northwest -font URW-Gothic-Book -pointsize 65 -fill white \
-	    -draw "text 60,1350 'Patrick Ciro • (212) 725-7684 • www.patrickciro.com'" \
+	    -draw "text 60,1370 'Patrick Ciro • (212) 725-7684 • www.patrickciro.com'" \
+	    -rotate -90 $@
+
+# 4x6 postcard exact
+patrick-ciro-4x6.jpg : patrick-ciro.jpg
+	convert $< -crop 2550x3825+510+135 -scale 1200x1800 -rotate 90  \
+	    -gravity northwest -font URW-Gothic-Book -pointsize 65 -fill white \
+	    -draw "text 60,1340 'Patrick Ciro • (212) 725-7684 • www.patrickciro.com'" \
 	    -rotate -90 $@
 
 ###################################################################################
