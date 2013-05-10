@@ -1,0 +1,22 @@
+.video iframe {
+	display: none;
+}
+
+#main-pic, #footer_wrap, .resume figcaption {
+	display: none;
+}
+
+body.print-page {
+	margin: 0;
+	padding: 0;
+}
+
+body.print-page .return-link {
+	display: none;
+}
+
+body.print-page img {
+	border: none;
+	padding: 0;
+	margin: 0 auto;
+}

@@ -455,7 +455,15 @@ Small Device Styles
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: normal;
+  font-weight: 600;
+}
+
+h3 {
+	margin-top: 2em;
+}
+
+h3.first {
+	margin-top: 0;
 }
 
 figure.headshot {
@@ -464,9 +472,6 @@ figure.headshot {
 
 figure.headshot img {
   width: 100%;
-  border: none;
-  margin: 0;
-  padding: 0;
 }
 
 figure.headshot figcaption {
@@ -475,4 +480,12 @@ figure.headshot figcaption {
 
 figure.resume {
   width: 100%;
+}
+
+figure.resume img {
+	padding: 0;
+}
+
+a img:hover {
+  border: 1px solid black;
 }
