@@ -27,7 +27,7 @@
 %.pdf : %.odt
 	libreoffice --nologo --invisible --convert-to pdf $<
 
-VPATH = ~/Dropbox/patrickciro
+VPATH = ~/Dropbox/pciro/marketing
 FILES := patrick-ciro-8x10.jpg \
 	patrick-ciro-8x10-bleed.jpg \
     	patrick-ciro-4x6.jpg \
