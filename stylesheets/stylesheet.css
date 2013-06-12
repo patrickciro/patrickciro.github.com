@@ -466,6 +466,10 @@ h3.first {
 	margin-top: 0;
 }
 
+h4 {
+	font-style: italic;
+}
+
 figure.headshot {
   width: 50%;
 }
