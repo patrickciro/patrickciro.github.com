@@ -455,31 +455,18 @@ Small Device Styles
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
+  font-weight: 800;
 }
-
 h3 {
 	margin-top: 2em;
-}
-
-h3.first {
-	margin-top: 0;
 }
 
 h4 {
 	font-style: italic;
 }
 
-figure.headshot {
-  width: 50%;
-}
-
-figure.headshot img {
-  width: 100%;
-}
-
-figure.headshot figcaption {
-  text-align: center;
+#main_content {
+	padding-top: 0;
 }
 
 figure.resume {
