@@ -29,12 +29,13 @@
 
 VPATH = ~/Dropbox/pciro/marketing
 FILES := patrick-ciro-8x10.jpg \
-	patrick-ciro-8x10-bleed.jpg \
     	patrick-ciro-4x6.jpg \
 	patrick-ciro-4-25x6.jpg \
 	patrick-ciro-thumbnail.jpg \
 	patrick-ciro-alt.jpg \
 	patrick-ciro-alt-thumbnail.jpg \
+	patrick-ciro-resume.png
+	#patrick-ciro-8x10-bleed.jpg \
 	#card.jpg
 
 OBJS := ../favicon.ico $(FILES)
@@ -132,3 +133,5 @@ patrick-ciro-4x5-4-text.jpg : patrick-ciro-4x5.pdf
 #	convert $< -crop 2400x2700+495+135 -gravity south -splice 0x300 +depth miff:- | \
 #	    composite -gravity center patrick-ciro-caption.png -geometry +0+1310 - $@
 
+patrick-ciro-resume.png : ~/Downloads/patrick-ciro-resume.pdf
+	pdftoppm $< -gray | gm convert - -crop 1200x1500 $@
